@@ -1,0 +1,40 @@
+/* ================================================================== */
+/* 1. SCROLLBAR CUSTOMIZADA (Tema Dark/Teal)                          */
+/* ================================================================== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2BBACA;
+    border-radius: 10px;
+}
+
+/* ================================================================== */
+/* 2. MIRA DE PRECISÃO NOS MAPAS E GRÁFICOS (Crosshair)               */
+/* ================================================================== */
+/* Aplica a mira em todos os elementos do Plotly e no Canvas do Mapbox */
+.js-plotly-plot,
+.js-plotly-plot *,
+.mapboxgl-canvas {
+    cursor: crosshair !important;
+}
+
+/* ================================================================== */
+/* 3. CORES CUSTOMIZADAS DOS FILTROS (Switches Bootstrap)             */
+/* ================================================================== */
+/* Tons pasteis e escuros para combinar com o Boxplot */
+#filtro-uso input[value="Residencial"]:checked { 
+    background-color: #366669 !important; 
+    border-color: #66C5CC !important; 
+}
+
+#filtro-uso input[value="Comercial"]:checked { 
+    background-color: #7E6B3C !important; 
+    border-color: #F6CF71 !important; 
+}
+
+#filtro-uso .form-check-label { 
+    color: #FFFFFF !important; 
+    font-weight: 500; 
+}
