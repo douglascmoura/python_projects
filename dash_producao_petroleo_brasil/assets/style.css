@@ -1,0 +1,159 @@
+/* ================================================================== */
+/* 0. VARIÁVEIS GLOBAIS DE TEMA (LIGHT MODE - SUNSET & OCEAN)         */
+/* ================================================================== */
+:root {
+    --color-primary: #1D3557;       /* Azul Premium / Sunset Gold #D96C06 */ 
+    --color-bg-sidebar: #FFFFFF;    /* Branco puro para destacar a área de controle */
+    --color-bg-main: #F4F6F8;       /* Off-white / Gelo para a área de dados */
+    --color-text-main: #2B2D42;     /* Azul Marinho/Slate para textos principais */
+    --color-text-muted: #6C757D;    /* Cinza médio para textos secundários */
+    --color-border: #E2E8F0;        /* Borda super sutil e elegante */
+}
+
+/* ================================================================== */
+/* 1. ESTRUTURA GLOBAL E LAYOUT                                       */
+/* ================================================================== */
+.app-container {
+    background-color: var(--color-bg-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--color-text-main);
+}
+
+.main-content-container {
+    padding: 10px 25px;
+    background-color: var(--color-bg-main);
+}
+
+/* ================================================================== */
+/* 2. SIDEBAR (BARRA LATERAL)                                         */
+/* ================================================================== */
+.sidebar-container {
+    background-color: var(--color-bg-sidebar);
+    padding: 20px 20px 100px 20px;
+    min-height: 100vh;
+    border-right: 1px solid var(--color-border);
+    position: relative;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.02); /* Sombra sutil para descolar do fundo */
+}
+
+.sidebar-title {
+    font-family: "Times New Roman", serif;
+    color: var(--color-primary);
+    font-weight: bold;
+    text-align: center;
+}
+
+.sidebar-description {
+    font-size: 0.85rem;
+    text-align: justify;
+    color: var(--color-text-muted);
+}
+
+.sidebar-divider {
+    border-color: var(--color-border);
+}
+
+.sidebar-label {
+    color: var(--color-text-main);
+    font-weight: 600;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 10px;
+    width: 97%;
+    /* margin-left: -0.35cm; */
+    font-size: smaller;
+}
+
+/* ================================================================== */
+/* 3. COMPONENTES DE FILTRO                                           */
+/* ================================================================== */
+.filter-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.number-input-half {
+    width: 48%;
+}
+
+.multiselect-container {
+    margin-bottom: 50px;
+}
+
+.multiselect-dropdown-item {
+    font-size: 0.15rem;
+}
+
+/* Tags selecionadas */
+.mantine-Pill-root {
+    font-size: 0.30rem !important;
+    padding: 2px 6px !important;
+    min-height: 10px !important;
+}
+
+/* Texto dentro da tag */
+.mantine-Pill-label {
+    font-size: 0.60rem !important;
+}
+
+/* ================================================================== */
+/* 4. GRÁFICOS E RENDERIZAÇÃO                                         */
+/* ================================================================== */
+.chart-tall {
+    height: 52vh;
+    margin-top: 15px;
+}
+
+.chart-standard {
+    height: 40vh;
+    margin-top: 15px;
+}
+
+/* ================================================================== */
+/* 5. SCROLLBAR CUSTOMIZADA (Tema Claro)                              */
+/* ================================================================== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1; /* Cinza claro elegante */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A0AAB5;
+}
+
+/* ================================================================== */
+/* 6. MIRA DE PRECISÃO NOS MAPAS E GRÁFICOS (Crosshair)               */
+/* ================================================================== */
+.js-plotly-plot,
+.js-plotly-plot *,
+.mapboxgl-canvas {
+    cursor: crosshair !important;
+}
+
+/* ================================================================== */
+/* 7. CORES CUSTOMIZADAS DOS FILTROS (Switches Bootstrap)             */
+/* ================================================================== */
+/* Botão "Mar" */
+#filtro-localizacao input[value="MAR"]:checked { 
+    background-color: #8B1F72 !important; 
+    border-color: #611750 !important; 
+}
+
+/* Botão "Terra" */
+#filtro-localizacao input[value="TERRA"]:checked { 
+    background-color: #F58B72 !important; 
+    border-color: #D05F43 !important; 
+}
+
+#filtro-localizacao .form-check-label { 
+    color: var(--color-text-main) !important; 
+    font-weight: 500; 
+}
