@@ -11,9 +11,10 @@ O objetivo deste espaço é documentar a minha jornada de desenvolvimento na lin
 Os projetos estão organizados em subpastas modulares, cada uma contendo seus próprios scripts e dependências. A estrutura atual e os planos futuros de expansão estão mapeados abaixo:
 
 ```text
-├── calc_project/               # Calculadora matemática para operações fundamentais
-├── games_project/              # Algoritmos de jogos clássicos rodando via terminal
+├── calc_project/                   # Calculadora matemática para operações fundamentais
+├── games_project/                  # Algoritmos de jogos clássicos rodando via terminal
 │   ├── jogo_da_velha.py
 │   └── pedra_papel_tesoura.py
-├── streamlit_FIFA_project/     # Dashboard analítico com Streamlit
-├── dash_analise_itbi_fortaleza # Dashboard analítico com Plotly e Dash
+├── streamlit_FIFA_project/         # Dashboard analítico com Streamlit
+├── dash_analise_itbi_fortaleza     # Dashboard analítico com Plotly e Dash
+├── dash_producao_petroleo_brasil   # Dashboard analítico com Plotly e Dash
