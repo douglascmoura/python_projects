@@ -1,0 +1,91 @@
+/* ================================================================== */
+/* 0. VARIÁVEIS GLOBAIS DE TEMA (DARK ANALYTICS)                      */
+/* Centraliza a paleta de cores. Alterar uma cor aqui reflete no app todo. */
+/* ================================================================== */
+:root {
+    --color-primary: #eaeaea;       /* Cor de destaque principal (brancos/gelos para alto contraste) */ 
+    --color-bg-sidebar: #111111;    /* Fundo da barra lateral - Mais escuro para profundidade */
+    --color-bg-main: #060606;       /* Fundo da área de dados - Quase preto profundo */
+    --color-panel: #1A1A1A;         /* Fundo de painéis flutuantes/cards e tooltips */
+    --color-text-main: #F2F5FA;     /* Texto principal - Branco gelo para não cansar a vista */
+    --color-text-muted: #8E9BAE;    /* Texto secundário/sutil - Cinza azulado */
+    --color-border: #283442;        /* Bordas de painéis (divisões sutis) */
+}
+
+/* ================================================================== */
+/* 1. ESTRUTURA GLOBAL E LAYOUT                                       */
+/* Reseta margens e aplica as variáveis declaradas acima no "body".   */
+/* ================================================================== */
+body, .app-container {
+    background-color: var(--color-bg-main);
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita rolagem horizontal acidental de tela inteira */
+    color: var(--color-text-main);
+    margin: 0;
+}
+
+/* ================================================================== */
+/* 2. MIRA DE PRECISÃO NOS GRÁFICOS (Crosshair)                       */
+/* Transforma o ponteiro do mouse em uma 'cruz' quando hovera mapas e linhas, 
+/* passando uma sensação de ferramenta técnica e precisa.             */
+/* ================================================================== */
+.js-plotly-plot,
+.js-plotly-plot *,
+.mapboxgl-canvas {
+    cursor: crosshair !important;
+}
+
+/* ================================================================== */
+/* 3. CUSTOMIZAÇÃO DOS SWITCHES (Checklist Bootstrap)                 */
+/* ================================================================== */
+/* Estado normal do botão */
+.form-check-input {
+    border-color: #eaeaea !important;
+}
+
+/* Estado selecionado (Ligado) */
+.form-check-input:checked {
+    background-color: #36567a !important;
+    border-color: #283442 !important;
+}
+
+/* Foco e Acessibilidade (Navegação por teclado) */
+.form-check-input:focus,
+.form-check-input:checked:focus,
+.form-check-input:focus-visible {
+    outline: none !important;
+    border-color: #DC3977 !important;
+    box-shadow: 0 0 0 0.15rem rgba(4, 31, 68, 0.25) !important;
+}
+
+/* Tratamento de botões Desabilitados */
+.form-check-input:disabled {
+    background-color: #d6d6d6 !important;
+    border-color: #bdbdbd !important;
+    opacity: 0.7 !important;
+    cursor: not-allowed;
+}
+
+.form-check-input:checked:disabled {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+
+/* ================================================================== */
+/* 4. SCROLLBAR CUSTOMIZADA (Barra de rolagem)                        */
+/* Deixa a barra de rolagem do navegador com a cara do tema Dark.     */
+/* ================================================================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-main); }
+::-webkit-scrollbar-thumb { background: #3A4B5C; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+/* ================================================================== */
+/* 5. MULTISELECT MANTINE                                             */
+/* Corrige o visual das "Pílulas" (Tags) selecionadas no filtro de UF.*/
+/* ================================================================== */
+.mantine-Pill-root { 
+    background-color: var(--color-panel) !important; 
+    color: var(--color-text-main) !important; 
+    border: 1px solid var(--color-border); 
+}
