@@ -1,13 +1,26 @@
+"""
+1_🏡_home
+-------
+Página inicial do Web App multipage (Streamlit).
+Responsável por apresentar o projeto e inicializar o estado global da aplicação (session_state),
+carregando os dados base que serão consumidos pelas outras páginas (Teams e Players).
+"""
+
 import streamlit as st
 import webbrowser
 import pandas as pd
 
+# 1. CONFIGURAÇÃO DA PÁGINA
+# st.set_page_config DEVE ser o primeiro comando Streamlit executado no script.
 st.set_page_config(
     page_title="Home",
     page_icon="🏡",
-    layout="wide"
+    layout="wide" # Utiliza toda a largura da tela, ideal para dashboards analíticos
 )
 
+# 2. INJEÇÃO DE CSS CUSTOMIZADO
+# Hack de UI: O Streamlit nativamente não permite mudar o título acima do menu de páginas facilmente.
+# Aqui injetamos um pseudo-elemento CSS (::before) na classe do menu lateral para criar um cabeçalho fixo.
 st.markdown(
     """
     <style>
@@ -24,40 +37,47 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-# st.sidebar.title("⚽ FIFA Analytics")
-# st.sidebar.markdown("Explore os dados de 2017 a 2023!")
-# st.sidebar.divider() 
 
-# Função para carregar dados dinamicamente com base no ano
+# 3. CAMADA DE DADOS E CACHE (Performance)
+# O decorador @st.cache_data memoriza o DataFrame retornado. Se o usuário selecionar um ano 
+# já carregado anteriormente, o Streamlit pula a leitura do CSV e retorna o dado da memória instantaneamente.
 @st.cache_data
 def load_data(year):
-    # Formata o ano para pegar apenas os dois últimos dígitos (ex: 2023 -> "23")
+    """Carrega, higieniza e filtra o dataset oficial do FIFA com base no ano selecionado."""
+    # Formata o ano para pegar apenas os dois últimos dígitos (ex: 2023 -> "23") para casar com o nome do arquivo
     year_str = str(year)[-2:]
     caminho_arquivo = f"datasets/CLEAN_FIFA{year_str}_official_data.csv"
     
     df_data = pd.read_csv(caminho_arquivo, index_col=0)
-    # Filtra contratos válidos com base no ano selecionado
+    
+    # Filtros de negócio: Apenas contratos válidos e jogadores com valor de mercado real
     df_data = df_data[df_data["Contract Valid Until"] >= year]
     df_data = df_data[df_data["Value(£)"] > 0]
+    
+    # Ordenação prévia para garantir que os melhores jogadores sempre apareçam primeiro nas tabelas
     df_data = df_data.sort_values(by="Overall", ascending=False)
     return df_data
 
-# Filtro de Ano na Barra Lateral
+# 4. INTERFACE DO USUÁRIO (Sidebar)
 anos_disponiveis = [2023, 2022, 2021, 2020, 2019, 2018, 2017]
 ano_selecionado = st.sidebar.selectbox("Selecione o Ano do FIFA", anos_disponiveis)
 
-# Salva o ano e os dados no session_state para compartilhar com as outras páginas
+# 5. GERENCIAMENTO DE ESTADO (State Management)
+# Salvamos as variáveis no session_state para que as páginas 'teams.py' e 'players.py' 
+# acessem os dados sem precisar ler o CSV ou perguntar o ano novamente.
 st.session_state["ano"] = ano_selecionado
 st.session_state["data"] = load_data(ano_selecionado)
 
-
+# 6. CONTEÚDO PRINCIPAL (Apresentação)
 st.markdown("# Explorando o FIFA Official Dataset! ⚽🎮📊")
 st.sidebar.markdown("Desenvolvido por [Douglas Chaves Moura](https://www.linkedin.com/in/douglas-chaves-moura-a545a835b) junto à **Asimov Academy**.")
 
+# Interação com link externo (Kaggle)
 btn = st.button("Acesse os dados no Kaggle")
 if btn:
     webbrowser.open_new_tab("https://www.kaggle.com/datasets/kevwesophia/fifa23-official-datasetclean-data")
 
+# Texto descritivo da aplicação
 st.markdown(
     '''
     **Seja bem-vindo** à plataforma onde a paixão pelo futebol se cruza com o poder da Estatística! 🏟️✨
