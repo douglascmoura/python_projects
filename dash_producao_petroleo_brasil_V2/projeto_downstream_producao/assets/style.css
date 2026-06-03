@@ -1,0 +1,372 @@
+:root {
+    --color-bg-main: #0B0A0C;
+    /* Fundo principal premium (Preto rico) */
+    --color-bg-sidebar: #141216;
+    /* Sidebar (Cinza muito escuro) */
+    --color-panel: #141216;
+    /* Cards e painéis */
+    --color-accent: #C46350;
+    /* Accent laranja/sunset */
+    --color-accent-neon: #C46350;
+    /* Neon glow */
+    --color-accent-hover: #F9D6BA;
+    /* Hover peach brilhante */
+    --color-border: #2B1B35;
+    /* Bordas sutis roxas */
+    --color-border-accent: #583345;
+    /* Bordas visíveis magenta escuro */
+    --color-text-main: #E0E0E0;
+    /* Texto claro principal */
+    --color-text-muted: #8C8C8C;
+    /* Texto secundário */
+    --color-text-sidebar: #E0E0E0;
+    --color-sidebar-muted: #8C8C8C;
+
+    /* Sombras premium */
+    --shadow-panel: 0 2px 16px rgba(0, 0, 0, 0.4);
+    --shadow-accent: 0 0 20px rgba(196, 99, 80, 0.25);
+    --shadow-sidebar: 4px 0 24px rgba(0, 0, 0, 0.5);
+
+    /* Tipografia */
+    --font-main: 'Inter', 'Roboto', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Base reset and fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+.app-container {
+    background-color: var(--color-bg-main) !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--color-text-main);
+    margin: 0;
+    font-family: var(--font-main);
+}
+
+/* Sidebar */
+.sidebar-container {
+    background-color: var(--color-bg-sidebar) !important;
+    border-right: 1px solid rgba(196, 99, 80, 0.2) !important;
+    position: relative;
+    box-shadow: var(--shadow-sidebar);
+    padding: 14px;
+    min-height: 80vh;
+}
+
+.sidebar-title {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 1.65rem !important;
+    letter-spacing: 0.06em !important;
+    color: var(--color-text-sidebar) !important;
+    background: linear-gradient(135deg, #C46350 0%, #2B1B35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+.sidebar-description {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: justify;
+}
+
+.sidebar-divider {
+    border-color: rgba(196, 99, 80, 0.3) !important;
+}
+
+.sidebar-label {
+    color: var(--color-accent-neon) !important;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+/* Form inputs & Checklist */
+.form-check-input {
+    border-color: rgba(196, 99, 80, 0.4) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 10px rgba(196, 99, 80, 0.6) !important;
+}
+
+.form-check-label {
+    color: var(--color-text-main) !important;
+    font-weight: 500;
+}
+
+/* Mantine Inputs */
+.mantine-NumberInput-input,
+.mantine-MultiSelect-input {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text-main) !important;
+}
+
+.mantine-NumberInput-input:focus,
+.mantine-MultiSelect-input:focus-within {
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 8px rgba(196, 99, 80, 0.4) !important;
+}
+
+/* Dropdowns */
+.mantine-MultiSelect-dropdown,
+.mantine-Combobox-dropdown {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border) !important;
+}
+
+.mantine-Combobox-option {
+    color: var(--color-text-muted) !important;
+}
+
+.mantine-Combobox-option[data-selected="true"],
+.mantine-Combobox-option:hover {
+    background-color: rgba(196, 99, 80, 0.2) !important;
+    color: var(--color-accent-neon) !important;
+}
+
+/* Main content */
+.main-content-container {
+    padding: 15px 25px;
+}
+
+/* Charts Panels */
+.chart-tall,
+.chart-standard {
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: var(--shadow-panel);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.chart-tall {
+    height: 42vh;
+}
+
+.chart-standard {
+    height: 50vh;
+}
+
+.chart-tall:hover,
+.chart-standard:hover {
+    border-color: rgba(196, 99, 80, 0.5);
+    box-shadow: var(--shadow-panel), var(--shadow-accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+/* Loading spinner blur */
+._dash-loading-callback {
+    background: rgba(26, 16, 32, 0.7) !important;
+    backdrop-filter: blur(4px);
+}
+
+/* Plotly SVGs overrides for dark mode */
+.js-plotly-plot .gtitle,
+.js-plotly-plot .g-xtitle text,
+.js-plotly-plot .g-ytitle text,
+.js-plotly-plot .xtick text,
+.js-plotly-plot .ytick text,
+.js-plotly-plot .legendtext,
+.js-plotly-plot .colorbar-title text,
+.js-plotly-plot .cbaxis text {
+    fill: var(--color-text-main) !important;
+}
+
+.js-plotly-plot .gridlayer path,
+.js-plotly-plot .zerolinelayer path {
+    stroke: var(--color-border) !important;
+}
+
+/* Ponto fixo no footer */
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+}
+
+.sidebar-footer a {
+    color: var(--color-text-muted);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.sidebar-footer a:hover {
+    color: var(--color-accent-neon) !important;
+    text-shadow: 0 0 10px rgba(249, 214, 186, 0.5);
+}
+
+/* ================================================================== */
+/* Mira de precisão nos gráficos e mapas (Crosshair)                  */
+/* ================================================================== */
+.js-plotly-plot,
+.js-plotly-plot *,
+.mapboxgl-canvas {
+    cursor: crosshair !important;
+}
+
+/* ================================================================== */
+/* Customização do MultiSelect Mantine - Dropdown com Checkbox         */
+/* ================================================================== */
+.mantine-MultiSelect-input {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text-main) !important;
+    max-height: 38px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 4px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+.mantine-MultiSelect-input::-webkit-scrollbar {
+    height: 3px !important;
+}
+
+.mantine-MultiSelect-input::-webkit-scrollbar-thumb {
+    background: var(--color-border) !important;
+    border-radius: 2px !important;
+}
+
+.mantine-MultiSelect-input::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent) !important;
+}
+
+.mantine-MultiSelect-wrapper {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text-main) !important;
+}
+
+.mantine-Pill-root {
+    display: none !important;
+    /* Oculta as pílulas dentro do input de busca */
+}
+
+.mantine-MultiSelect-dropdown,
+.mantine-Combobox-dropdown {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border) !important;
+}
+
+/* Oculta os checks em SVG padrão do Mantine */
+.mantine-MultiSelect-optionCheck,
+.mantine-Combobox-optionCheck,
+.mantine-Select-optionCheck,
+.mantine-Combobox-option[data-selected] svg,
+.mantine-Combobox-option[data-selected="true"] svg,
+.mantine-Combobox-option[aria-selected="true"] svg {
+    display: none !important;
+}
+
+.mantine-Combobox-option {
+    padding-left: 32px !important;
+    position: relative !important;
+    font-size: 0.85rem !important;
+    color: var(--color-text-muted) !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 36px !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.mantine-Combobox-option[data-selected],
+.mantine-Combobox-option[data-selected="true"],
+.mantine-Combobox-option[aria-selected="true"] {
+    background-color: rgba(196, 99, 80, 0.15) !important;
+    color: var(--color-text-main) !important;
+}
+
+.mantine-Combobox-option:hover,
+.mantine-Combobox-option[data-combobox-active],
+.mantine-Combobox-option[data-combobox-active="true"],
+.mantine-Combobox-option[data-hovered],
+.mantine-Combobox-option[data-focus],
+.mantine-Combobox-option[data-active],
+.mantine-Select-option[data-combobox-active],
+.mantine-Select-option[data-hovered],
+.mantine-MultiSelect-option[data-combobox-active],
+.mantine-MultiSelect-option[data-hovered] {
+    background-color: var(--color-accent) !important;
+    color: var(--color-text-main) !important;
+}
+
+/* Caixa de marcação (Checkbox) vazia */
+.mantine-Combobox-option::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 8px !important;
+    width: 14px !important;
+    height: 14px !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 3px !important;
+    background-color: var(--color-panel) !important;
+    transition: background-color 0.15s, border-color 0.15s !important;
+}
+
+/* Checkbox preenchido quando selecionado */
+.mantine-Combobox-option[data-selected]::before,
+.mantine-Combobox-option[data-selected="true"]::before,
+.mantine-Combobox-option[aria-selected="true"]::before {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+}
+
+/* Desenho do checkmark (✓) */
+.mantine-Combobox-option::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) rotate(45deg) scale(0) !important;
+    width: 4px !important;
+    height: 8px !important;
+    border-right: 2px solid var(--color-text-main) !important;
+    border-bottom: 2px solid var(--color-text-main) !important;
+    transition: transform 0.15s ease !important;
+    transform-origin: center !important;
+}
+
+/* Revela o checkmark quando selecionado */
+.mantine-Combobox-option[data-selected]::after,
+.mantine-Combobox-option[data-selected="true"]::after,
+.mantine-Combobox-option[aria-selected="true"]::after {
+    transform: translateY(-60%) rotate(45deg) scale(1) !important;
+}
