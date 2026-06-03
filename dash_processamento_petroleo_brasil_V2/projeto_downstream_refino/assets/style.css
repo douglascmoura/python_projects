@@ -1,0 +1,648 @@
+/* ====================================================================== */
+/* 0. VARIÁVEIS GLOBAIS DE TEMA (LIGHT PREMIUM — GELO & AZURE)            */
+/* Paleta centralizada. Alterar uma variável reflete em toda a aplicação. */
+/* ====================================================================== */
+:root {
+    --color-bg-main:        #F5F7FA;  /* Fundo principal — gelo off-white           */
+    --color-bg-sidebar:     #1B2A4A;  /* Sidebar — azul-marinho profundo            */
+    --color-panel:          #FFFFFF;  /* Cards e painéis — branco puro              */
+    --color-accent:         #007FFF;  /* Azure — accent principal                   */
+    --color-accent-neon:    #ADFFFF;  /* Celeste — neon para destaques              */
+    --color-accent-hover:   #1A8FFF;  /* Azure claro para hover                     */
+    --color-accent-mid:     #52C8FF;  /* Azul médio — intermediário da escala       */
+    --color-border:         #D8E4F0;  /* Bordas sutis azuladas                      */
+    --color-border-accent:  #B8CFEA;  /* Bordas mais visíveis                       */
+    --color-text-main:      #0F1E35;  /* Texto principal — azul-marinho muito escuro*/
+    --color-text-muted:     #5E7A99;  /* Texto secundário — azul-acinzentado        */
+    --color-text-sidebar:   #E8F0FF;  /* Texto claro na sidebar escura              */
+    --color-sidebar-muted:  #8AAACF;  /* Texto sutil da sidebar                     */
+
+    /* Sombras premium */
+    --shadow-panel:  0 2px 16px rgba(0, 127, 255, 0.08);
+    --shadow-accent: 0 0 20px rgba(0, 127, 255, 0.15);
+    --shadow-sidebar: 4px 0 24px rgba(0, 0, 0, 0.25);
+
+    /* Tipografia */
+    --font-main: 'Inter', 'Roboto', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ====================================================================== */
+/* 1. IMPORTAÇÃO DE FONTES (Google Fonts)                                 */
+/* ====================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* ====================================================================== */
+/* 2. RESET GLOBAL E ESTRUTURA                                            */
+/* ====================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, .app-container {
+    background-color: var(--color-bg-main) !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--color-text-main);
+    margin: 0;
+    font-family: var(--font-main);
+}
+
+/* ====================================================================== */
+/* 3. SIDEBAR — Estilo Premium Azul-Marinho                               */
+/* ====================================================================== */
+.sidebar-container {
+    background-color: var(--color-bg-sidebar) !important;
+    border-right: 1px solid rgba(173, 255, 255, 0.1) !important;
+    position: relative;
+    box-shadow: var(--shadow-sidebar);
+}
+
+/* Logo/marca na sidebar */
+.sidebar-logo {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 1.65rem !important;
+    letter-spacing: 0.06em !important;
+    color: var(--color-text-sidebar) !important;
+    background: linear-gradient(135deg, #ADFFFF 0%, #007FFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Linha divisória da sidebar */
+.sidebar-divider {
+    border-color: rgba(173, 255, 255, 0.15) !important;
+    opacity: 0.8;
+}
+
+/* Labels dos filtros na sidebar */
+.filter-label {
+    color: var(--color-accent-neon) !important;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+/* ====================================================================== */
+/* 4. SWITCHES (Checklist Bootstrap) — Tema Azure                         */
+/* ====================================================================== */
+.form-check-input {
+    border-color: rgba(173, 255, 255, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 8px rgba(0, 127, 255, 0.5) !important;
+}
+
+.form-check-input:focus,
+.form-check-input:checked:focus,
+.form-check-input:focus-visible {
+    outline: none !important;
+    border-color: var(--color-accent-neon) !important;
+    box-shadow: 0 0 0 0.15rem rgba(0, 127, 255, 0.3) !important;
+}
+
+.form-check-input:disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed;
+}
+
+/* Labels do switch na sidebar */
+.form-check-label {
+    font-size: 0.82rem !important;
+    color: var(--color-sidebar-muted) !important;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.form-check:has(.form-check-input:checked) .form-check-label {
+    color: var(--color-text-sidebar) !important;
+}
+
+/* ====================================================================== */
+/* 5. MIRA DE PRECISÃO NOS GRÁFICOS (Crosshair)                          */
+/* Transmite sensação técnica e analítica profissional.                   */
+/* ====================================================================== */
+.js-plotly-plot,
+.js-plotly-plot *,
+.mapboxgl-canvas {
+    cursor: crosshair !important;
+}
+
+/* ====================================================================== */
+/* 6. SCROLLBAR CUSTOMIZADA — Azure Light                                 */
+/* ====================================================================== */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--color-bg-main); }
+::-webkit-scrollbar-thumb {
+    background: var(--color-border-accent);
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* ====================================================================== */
+/* 7. MULTISELECT MANTINE — Tema Claro Sidebar (dropdowns sobre fundo    */
+/*    escuro da sidebar e dropdowns sobre fundo claro da área principal)  */
+/* ====================================================================== */
+
+/* Input do MultiSelect dentro da sidebar — fundo semitransparente escuro */
+.sidebar-container .mantine-MultiSelect-input {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(173, 255, 255, 0.2) !important;
+    color: var(--color-text-sidebar) !important;
+    max-height: 38px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 4px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+
+/* Placeholder nos MultiSelects da sidebar */
+.sidebar-container .mantine-MultiSelect-input::placeholder,
+.sidebar-container input::placeholder {
+    color: var(--color-sidebar-muted) !important;
+}
+
+/* Dropdown flutuante (sempre sobre fundo claro, independente de onde está) */
+.mantine-MultiSelect-dropdown,
+.mantine-Combobox-dropdown {
+    background-color: #FFFFFF !important;
+    border-color: var(--color-border-accent) !important;
+    box-shadow: 0 8px 24px rgba(0, 127, 255, 0.12) !important;
+}
+
+/* Esconde pílulas para economizar espaço */
+.mantine-Pill-root {
+    display: none !important;
+}
+
+/* Scrollbar interna das pílulas */
+.mantine-MultiSelect-input::-webkit-scrollbar { height: 3px !important; }
+.mantine-MultiSelect-input::-webkit-scrollbar-thumb {
+    background: rgba(173, 255, 255, 0.3) !important;
+    border-radius: 2px !important;
+}
+.mantine-MultiSelect-input::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent) !important;
+}
+
+/* Ícones de check nativos — ocultos */
+.mantine-MultiSelect-optionCheck,
+.mantine-Combobox-optionCheck,
+.mantine-Select-optionCheck,
+.mantine-Combobox-option[data-selected] svg,
+.mantine-Combobox-option[data-selected="true"] svg,
+.mantine-Combobox-option[aria-selected="true"] svg {
+    display: none !important;
+}
+
+/* Item do dropdown */
+.mantine-Combobox-option {
+    padding-left: 32px !important;
+    position: relative !important;
+    font-size: 0.85rem !important;
+    color: var(--color-text-muted) !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 36px !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+/* Item selecionado — destaque azure suave */
+.mantine-Combobox-option[data-selected],
+.mantine-Combobox-option[data-selected="true"],
+.mantine-Combobox-option[aria-selected="true"] {
+    background-color: rgba(0, 127, 255, 0.08) !important;
+    color: var(--color-text-main) !important;
+}
+
+/* Item em hover */
+.mantine-Combobox-option:hover,
+.mantine-Combobox-option[data-combobox-active="true"],
+.mantine-Combobox-option[data-hovered="true"],
+.mantine-Combobox-option[data-focus="true"],
+.mantine-Combobox-option[data-active="true"],
+.mantine-Select-option:hover,
+.mantine-Select-option[data-combobox-active="true"],
+.mantine-Select-option[data-hovered="true"],
+.mantine-MultiSelect-option:hover,
+.mantine-MultiSelect-option[data-combobox-active="true"],
+.mantine-MultiSelect-option[data-hovered="true"] {
+    background-color: var(--color-accent) !important;
+    color: #FFFFFF !important;
+}
+
+
+/* Caixa de marcação (Checkbox) customizada — vazia */
+.mantine-Combobox-option::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 8px !important;
+    width: 14px !important;
+    height: 14px !important;
+    border: 1.5px solid var(--color-border-accent) !important;
+    border-radius: 3px !important;
+    background-color: #FFFFFF !important;
+    transition: background-color 0.15s, border-color 0.15s !important;
+}
+
+/* Checkbox selecionado — azure preenchido */
+.mantine-Combobox-option[data-selected]::before,
+.mantine-Combobox-option[data-selected="true"]::before,
+.mantine-Combobox-option[aria-selected="true"]::before {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+}
+
+/* Checkmark invisível por padrão */
+.mantine-Combobox-option::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) rotate(45deg) scale(0) !important;
+    width: 4px !important;
+    height: 8px !important;
+    border-right: 2px solid #FFFFFF !important;
+    border-bottom: 2px solid #FFFFFF !important;
+    transition: transform 0.15s ease !important;
+    transform-origin: center !important;
+}
+
+/* Checkmark visível quando selecionado */
+.mantine-Combobox-option[data-selected]::after,
+.mantine-Combobox-option[data-selected="true"]::after,
+.mantine-Combobox-option[aria-selected="true"]::after {
+    transform: translateY(-60%) rotate(45deg) scale(1) !important;
+}
+
+/* ====================================================================== */
+/* 8. NUMBER INPUT MANTINE — Tema Sidebar Escura                          */
+/* ====================================================================== */
+.sidebar-container .mantine-NumberInput-input {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(173, 255, 255, 0.2) !important;
+    color: var(--color-text-sidebar) !important;
+}
+
+.sidebar-container .mantine-NumberInput-input:focus {
+    border-color: var(--color-accent-neon) !important;
+    box-shadow: 0 0 0 2px rgba(173, 255, 255, 0.2) !important;
+}
+
+.sidebar-container .mantine-InputWrapper-label {
+    color: var(--color-sidebar-muted) !important;
+    font-size: 0.75rem !important;
+}
+
+/* Controles de incremento/decremento */
+.sidebar-container .mantine-NumberInput-control {
+    border-color: rgba(173, 255, 255, 0.15) !important;
+    color: var(--color-sidebar-muted) !important;
+}
+
+.sidebar-container .mantine-NumberInput-control:hover {
+    background-color: rgba(0, 127, 255, 0.2) !important;
+    color: var(--color-accent-neon) !important;
+}
+
+/* ====================================================================== */
+/* 9. PAINÉIS DE GRÁFICO — Borda e sombra premium light                  */
+/* ====================================================================== */
+.chart-panel {
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 4px;
+    box-shadow: var(--shadow-panel);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.chart-panel:hover {
+    border-color: rgba(0, 127, 255, 0.3);
+    box-shadow: var(--shadow-panel), var(--shadow-accent);
+}
+
+/* ====================================================================== */
+/* 10. LOADING SPINNER — Cor azure                                        */
+/* ====================================================================== */
+._dash-loading-callback {
+    background: rgba(245, 247, 250, 0.7) !important;
+    backdrop-filter: blur(4px);
+}
+
+/* ====================================================================== */
+/* 11. MICRO-ANIMAÇÕES — Footer e elementos da sidebar                   */
+/* ====================================================================== */
+.sidebar-footer a {
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+    text-decoration: none !important;
+}
+
+.sidebar-footer a:hover {
+    color: var(--color-accent-neon) !important;
+    text-shadow: 0 0 10px rgba(173, 255, 255, 0.6);
+}
+
+/* Linha accent decorativa no topo da sidebar — azure → transparent */
+.sidebar-accent-line {
+    width: 100% !important;
+    height: 3px;
+    background: linear-gradient(90deg, #ADFFFF, #007FFF, transparent);
+    border-radius: 2px;
+    margin-bottom: 16px;
+}
+
+/* ====================================================================== */
+/* 12. KPI BADGE — Valor de destaque nos tooltips                        */
+/* ====================================================================== */
+.kpi-value {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* ====================================================================== */
+/* 13. TEXTOS GERAIS DA SIDEBAR                                           */
+/* ====================================================================== */
+.sidebar-container p,
+.sidebar-container .text-muted {
+    color: var(--color-sidebar-muted) !important;
+}
+
+.sidebar-container hr {
+    border-color: rgba(173, 255, 255, 0.12) !important;
+}
+
+/* ====================================================================== */
+/* 14. TEMA ESCURO — Variáveis via [data-theme="dark"]                   */
+/* Sobrescreve apenas as variáveis que mudam. Accent/neon permanecem.    */
+/* ====================================================================== */
+[data-theme="dark"] {
+    --color-bg-main:        #0C1524;  /* Azul-marinho quase preto — área principal  */
+    --color-bg-sidebar:     #152038;  /* Sidebar dark — ligeiramente mais escura    */
+    --color-panel:          #172134;  /* Cards/painéis — um degrau acima do fundo   */
+    --color-border:         #1E3050;  /* Bordas sutis escuras                       */
+    --color-border-accent:  #243B65;  /* Bordas mais visíveis                       */
+    --color-text-main:      #E8F0FF;  /* Texto claro azulado                        */
+    --color-text-muted:     #7BA0C4;  /* Texto sutil azul-médio                     */
+
+    /* Sombras ajustadas para dark */
+    --shadow-panel:  0 2px 16px rgba(0, 0, 0, 0.4);
+    --shadow-accent: 0 0 24px rgba(0, 127, 255, 0.20);
+    --shadow-sidebar: 4px 0 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ====================================================================== */
+/* 15. OVERRIDES DARK MODE — Componentes que precisam de ajuste explícito*/
+/* ====================================================================== */
+
+/* Área de gráficos / body */
+[data-theme="dark"] body,
+[data-theme="dark"] .app-container {
+    background-color: var(--color-bg-main) !important;
+    color: var(--color-text-main);
+}
+
+/* Dropdown flutuante Mantine — fundo escuro no dark mode */
+[data-theme="dark"] .mantine-MultiSelect-dropdown,
+[data-theme="dark"] .mantine-Combobox-dropdown {
+    background-color: #172134 !important;
+    border-color: #243B65 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+    --combobox-option-hover-bg: #243B65 !important;
+    --combobox-option-active-bg: rgba(0, 127, 255, 0.15) !important;
+}
+
+/* Itens do dropdown no dark mode */
+[data-theme="dark"] .mantine-Combobox-option,
+[data-theme="dark"] .mantine-Select-option,
+[data-theme="dark"] .mantine-MultiSelect-option {
+    color: #7BA0C4 !important;
+    --combobox-option-hover-bg: #243B65 !important;
+    --combobox-option-active-bg: rgba(0, 127, 255, 0.15) !important;
+}
+
+/* Item selecionado no dark mode */
+[data-theme="dark"] .mantine-Combobox-option[data-selected="true"],
+[data-theme="dark"] .mantine-Combobox-option[aria-selected="true"],
+[data-theme="dark"] .mantine-Select-option[data-selected="true"],
+[data-theme="dark"] .mantine-Select-option[aria-selected="true"],
+[data-theme="dark"] .mantine-MultiSelect-option[data-selected="true"],
+[data-theme="dark"] .mantine-MultiSelect-option[aria-selected="true"] {
+    background-color: rgba(0, 127, 255, 0.15) !important;
+    color: #E8F0FF !important;
+}
+
+/* Item em hover ou focado no dark mode */
+[data-theme="dark"] .mantine-Combobox-option:hover,
+[data-theme="dark"] .mantine-Combobox-option[data-hovered="true"],
+[data-theme="dark"] .mantine-Combobox-option[data-focus="true"],
+[data-theme="dark"] .mantine-Combobox-option[data-combobox-active="true"],
+[data-theme="dark"] .mantine-Combobox-option[data-active="true"],
+[data-theme="dark"] .mantine-Select-option:hover,
+[data-theme="dark"] .mantine-Select-option[data-hovered="true"],
+[data-theme="dark"] .mantine-Select-option[data-focus="true"],
+[data-theme="dark"] .mantine-Select-option[data-combobox-active="true"],
+[data-theme="dark"] .mantine-Select-option[data-active="true"],
+[data-theme="dark"] .mantine-MultiSelect-option:hover,
+[data-theme="dark"] .mantine-MultiSelect-option[data-hovered="true"],
+[data-theme="dark"] .mantine-MultiSelect-option[data-focus="true"],
+[data-theme="dark"] .mantine-MultiSelect-option[data-combobox-active="true"],
+[data-theme="dark"] .mantine-MultiSelect-option[data-active="true"] {
+    background-color: #243B65 !important;
+    color: #E8F0FF !important;
+}
+
+
+
+
+
+/* Checkbox customizado — fundo escuro */
+[data-theme="dark"] .mantine-Combobox-option::before {
+    background-color: #172134 !important;
+    border-color: #243B65 !important;
+}
+
+/* Backdrop do loading spinner no dark mode */
+[data-theme="dark"] ._dash-loading-callback {
+    background: rgba(12, 21, 36, 0.75) !important;
+}
+
+/* Títulos e textos dos gráficos Plotly no dark mode                     */
+/* Plotly renderiza tudo em SVG — precisamos sobrescrever o atributo fill */
+[data-theme="dark"] .js-plotly-plot .gtitle,
+[data-theme="dark"] .js-plotly-plot .g-xtitle text,
+[data-theme="dark"] .js-plotly-plot .g-ytitle text,
+[data-theme="dark"] .js-plotly-plot .xtick text,
+[data-theme="dark"] .js-plotly-plot .ytick text,
+[data-theme="dark"] .js-plotly-plot .legendtext,
+[data-theme="dark"] .js-plotly-plot .annotation-text,
+[data-theme="dark"] .js-plotly-plot .colorbar-title text,
+[data-theme="dark"] .js-plotly-plot .cbaxis text {
+    fill: #E8F0FF !important;
+}
+
+/* Linhas de grade e spikes — tom sutil azulado escuro */
+[data-theme="dark"] .js-plotly-plot .gridlayer path,
+[data-theme="dark"] .js-plotly-plot .zerolinelayer path {
+    stroke: #1E3050 !important;
+}
+
+/* Spike lines (mira do hover) — mantém a cor accent */
+[data-theme="dark"] .js-plotly-plot .spikeline {
+    stroke: #243B65 !important;
+}
+
+/* Caixa de hover (tooltip) — fundo escuro nos gráficos no dark mode */
+/* 1. Para gráficos com hover comum (Pie, Treemap): a caixa é um <path>/<rect> direto dentro de .hovertext */
+[data-theme="dark"] .js-plotly-plot .hoverlayer .hovertext rect,
+[data-theme="dark"] .js-plotly-plot .hoverlayer .hovertext path,
+/* 2. Para gráficos com hover unificado (Line): o fundo é a classe '.bg', o que preserva os símbolos coloridos */
+[data-theme="dark"] .js-plotly-plot .hoverlayer [class*="hovertext"] .bg,
+[data-theme="dark"] .js-plotly-plot .hoverlayer .axistext .bg,
+[data-theme="dark"] .js-plotly-plot .hoverlayer rect.bg,
+[data-theme="dark"] .js-plotly-plot .hoverlayer path.bg {
+    fill: #172134 !important;
+    stroke: #243B65 !important;
+}
+
+
+
+
+/* Texto dentro do hover — claro sobre fundo escuro */
+[data-theme="dark"] .js-plotly-plot .hoverlayer .hovertext text,
+[data-theme="dark"] .js-plotly-plot .hoverlayer text {
+    fill: #E8F0FF !important;
+}
+
+/* Labels externos do gráfico de rosca (textposition='outside')          */
+/* Inclui tanto o texto da parcela quanto a linha conectora.             */
+[data-theme="dark"] .js-plotly-plot .pielayer text,
+[data-theme="dark"] .js-plotly-plot .pielayer .textpoint text,
+[data-theme="dark"] .js-plotly-plot .pielayer .outside text {
+    fill: #E8F0FF !important;
+}
+
+/* ====================================================================== */
+/* 16. TRANSIÇÃO GLOBAL — Fade suave de 0.35s entre os temas             */
+/* Aplicada apenas nos elementos que mudam de cor entre temas.           */
+/* ====================================================================== */
+body,
+.chart-panel,
+.sidebar-container,
+.mantine-MultiSelect-input,
+.mantine-NumberInput-input,
+.mantine-Combobox-dropdown,
+.mantine-MultiSelect-dropdown {
+    transition: background-color 0.35s ease,
+                color            0.35s ease,
+                border-color     0.35s ease,
+                box-shadow       0.35s ease !important;
+}
+
+
+/* ====================================================================== */
+/* 17. SWITCH PILL ANIMADO — Toggle ☀️ / 🌙                              */
+/* ====================================================================== */
+
+/* Container do toggle — posicionado entre a accent-line e o logo */
+.theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    user-select: none;
+}
+
+/* Ícone do sol */
+.theme-toggle-sun {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    transition: opacity 0.35s ease;
+    line-height: 1;
+}
+
+/* Ícone da lua */
+.theme-toggle-moon {
+    font-size: 0.85rem;
+    opacity: 0.5;
+    transition: opacity 0.35s ease;
+    line-height: 1;
+}
+
+/* No dark mode: lua fica mais intensa, sol fica sutil */
+[data-theme="dark"] .theme-toggle-sun  { opacity: 0.4; }
+[data-theme="dark"] .theme-toggle-moon { opacity: 1.0; }
+
+/* Track oval (pill) — o trilho do switch */
+.theme-toggle-track {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 48px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1.5px solid rgba(173, 255, 255, 0.25);
+    border-radius: 13px;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: background 0.35s ease, border-color 0.35s ease,
+                box-shadow 0.35s ease;
+    box-shadow: 0 0 0 0 transparent;
+    flex-shrink: 0;
+}
+
+.theme-toggle-track:hover {
+    border-color: rgba(173, 255, 255, 0.5);
+    box-shadow: 0 0 8px rgba(0, 127, 255, 0.4);
+}
+
+.theme-toggle-track:focus-visible {
+    box-shadow: 0 0 0 2px #ADFFFF;
+}
+
+/* Estado dark: fundo azure levemente iluminado */
+[data-theme="dark"] .theme-toggle-track {
+    background: rgba(0, 127, 255, 0.25);
+    border-color: rgba(173, 255, 255, 0.35);
+    box-shadow: 0 0 10px rgba(0, 127, 255, 0.3);
+}
+
+/* Thumb (bolinha deslizante) */
+.theme-toggle-thumb {
+    position: absolute;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, #ADFFFF 0%, #007FFF 100%);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3),
+                0 0 8px rgba(0, 127, 255, 0.4);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.35s ease;
+    pointer-events: none;
+}
+
+/* Dark mode: thumb desliza para a direita */
+[data-theme="dark"] .theme-toggle-thumb {
+    transform: translateX(22px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5),
+                0 0 12px rgba(173, 255, 255, 0.5);
+}
