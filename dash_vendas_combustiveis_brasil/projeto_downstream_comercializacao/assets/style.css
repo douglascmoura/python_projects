@@ -1,0 +1,352 @@
+/* ====================================================================== */
+/* 0. VARIÁVEIS GLOBAIS DE TEMA (DARK PREMIUM — PEDRA & TERRA)            */
+/* Paleta centralizada. Alterar uma variável reflete em toda a aplicação. */
+/* ====================================================================== */
+:root {
+    --color-bg-main:        #0C151A;  /* Fundo principal — carvão profundo       */
+    --color-bg-sidebar:     #162127;  /* Fundo da sidebar — ardósia escura        */
+    --color-panel:          #1A2830;  /* Cards e painéis secundários              */
+    --color-accent:         #724C39;  /* Accent quente — terracota                */
+    --color-accent-hover:   #8A5E48;  /* Accent claro para hover                  */
+    --color-steel:          #495056;  /* Aço grafite — elementos de suporte       */
+    --color-text-muted:     #808A93;  /* Texto sutil — cinza névoa                */
+    --color-text-main:      #EAEAEA;  /* Texto principal — branco gelo            */
+    --color-border:         #1E2D35;  /* Bordas de painéis (divisões sutis)       */
+    --color-border-accent:  #2A3E4A;  /* Bordas mais visíveis                     */
+
+    /* Sombras premium para profundidade */
+    --shadow-panel: 0 4px 24px rgba(0, 0, 0, 0.5);
+    --shadow-accent: 0 0 20px rgba(114, 76, 57, 0.15);
+
+    /* Tipografia */
+    --font-main: 'Inter', 'Roboto', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ====================================================================== */
+/* 1. IMPORTAÇÃO DE FONTES (Google Fonts)                                 */
+/* ====================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* ====================================================================== */
+/* 2. RESET GLOBAL E ESTRUTURA                                            */
+/* ====================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, .app-container {
+    background-color: var(--color-bg-main) !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--color-text-main);
+    margin: 0;
+    font-family: var(--font-main);
+}
+
+/* ====================================================================== */
+/* 3. SIDEBAR — Estilo Premium                                            */
+/* ====================================================================== */
+.sidebar-container {
+    background-color: var(--color-bg-sidebar) !important;
+    border-right: 1px solid var(--color-border-accent) !important;
+    position: relative;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo/marca na sidebar */
+.sidebar-logo {
+    font-family: var(--font-main);
+    font-weight: 800;
+    font-size: 1.75rem !important;
+    letter-spacing: 0.06em !important;
+    color: var(--color-text-main) !important;
+    background: linear-gradient(135deg, #EAEAEA 0%, #808A93 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Linha divisória da sidebar */
+.sidebar-divider {
+    border-color: var(--color-border-accent) !important;
+    opacity: 0.6;
+}
+
+/* Labels dos filtros */
+.filter-label {
+    color: var(--color-accent) !important;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* ====================================================================== */
+/* 4. SWITCHES (Checklist Bootstrap) — Tema Terracota                     */
+/* ====================================================================== */
+.form-check-input {
+    border-color: var(--color-border-accent) !important;
+    background-color: var(--color-panel) !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 8px rgba(114, 76, 57, 0.4) !important;
+}
+
+.form-check-input:focus,
+.form-check-input:checked:focus,
+.form-check-input:focus-visible {
+    outline: none !important;
+    border-color: var(--color-accent-hover) !important;
+    box-shadow: 0 0 0 0.15rem rgba(114, 76, 57, 0.3) !important;
+}
+
+.form-check-input:disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed;
+}
+
+/* Labels do switch */
+.form-check-label {
+    font-size: 0.82rem !important;
+    color: var(--color-text-muted) !important;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.form-check:has(.form-check-input:checked) .form-check-label {
+    color: var(--color-text-main) !important;
+}
+
+/* ====================================================================== */
+/* 5. MIRA DE PRECISÃO NOS GRÁFICOS (Crosshair)                          */
+/* Transmite sensação técnica e analítica profissional.                   */
+/* ====================================================================== */
+.js-plotly-plot,
+.js-plotly-plot *,
+.mapboxgl-canvas {
+    cursor: crosshair !important;
+}
+
+/* ====================================================================== */
+/* 6. SCROLLBAR CUSTOMIZADA — Dark Premium                               */
+/* ====================================================================== */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--color-bg-main); }
+::-webkit-scrollbar-thumb {
+    background: var(--color-steel);
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* ====================================================================== */
+/* 7. MULTISELECT MANTINE — Pílulas e Input Dark                         */
+/* ====================================================================== */
+.mantine-MultiSelect-input {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border-accent) !important;
+    color: var(--color-text-main) !important;
+    
+    /* Mantém o dropdown em exatamente 1 linha, permitindo rolagem horizontal das pílulas selecionadas */
+    max-height: 38px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 4px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+/* Customização fina da barra de rolagem horizontal interna das pílulas */
+.mantine-MultiSelect-input::-webkit-scrollbar {
+    height: 3px !important;
+}
+.mantine-MultiSelect-input::-webkit-scrollbar-thumb {
+    background: var(--color-steel) !important;
+    border-radius: 2px !important;
+}
+.mantine-MultiSelect-input::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent) !important;
+}
+
+.mantine-MultiSelect-wrapper {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border-accent) !important;
+    color: var(--color-text-main) !important;
+}
+
+.mantine-Pill-root {
+    display: none !important; /* Esconde completamente os balões (pílulas) da caixa de seleção */
+}
+
+.mantine-MultiSelect-dropdown,
+.mantine-Combobox-dropdown {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border-accent) !important;
+}
+
+/* Oculta os ícones de check nativos do Mantine (SVGs) para liberar espaço */
+.mantine-MultiSelect-optionCheck,
+.mantine-Combobox-optionCheck,
+.mantine-Select-optionCheck,
+.mantine-Combobox-option[data-selected="true"] svg,
+.mantine-Combobox-option[aria-selected="true"] svg {
+    display: none !important;
+}
+
+.mantine-Combobox-option {
+    padding-left: 32px !important;
+    position: relative !important;
+    font-size: 0.85rem !important;
+    color: var(--color-text-muted) !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 36px !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.mantine-Combobox-option[data-selected="true"],
+.mantine-Combobox-option[aria-selected="true"] {
+    background-color: rgba(114, 76, 57, 0.15) !important; /* Destaque sutil no fundo para o item selecionado */
+    color: var(--color-text-main) !important;
+}
+
+.mantine-Combobox-option:hover
+.mantine-Combobox-option:hover,
+.mantine-Combobox-option[data-combobox-active],
+.mantine-Combobox-option[data-combobox-active="true"],
+.mantine-Combobox-option[data-hovered],
+.mantine-Combobox-option[data-focus],
+.mantine-Combobox-option[data-active],
+.mantine-Select-option[data-combobox-active],
+.mantine-Select-option[data-hovered],
+.mantine-MultiSelect-option[data-combobox-active],
+.mantine-MultiSelect-option[data-hovered] {
+    background-color: var(--color-accent) !important;
+    color: var(--color-text-main) !important;
+}
+
+/* Caixa de marcação (Checkbox) vazia por padrão */
+.mantine-Combobox-option::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 8px !important;
+    width: 14px !important;
+    height: 14px !important;
+    border: 1px solid var(--color-steel) !important;
+    border-radius: 3px !important;
+    background-color: var(--color-panel) !important;
+    transition: background-color 0.15s, border-color 0.15s !important;
+}
+
+/* Estado Selecionado: Transforma o checkbox em terracota preenchido */
+.mantine-Combobox-option[data-selected="true"]::before,
+.mantine-Combobox-option[aria-selected="true"]::before {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+}
+
+/* Ícone de checkmark (✓) invisível por padrão */
+.mantine-Combobox-option::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) rotate(45deg) scale(0) !important;
+    width: 4px !important;
+    height: 8px !important;
+    border-right: 2px solid var(--color-text-main) !important;
+    border-bottom: 2px solid var(--color-text-main) !important;
+    transition: transform 0.15s ease !important;
+    transform-origin: center !important;
+}
+
+/* Estado Selecionado: Revela o checkmark com animação de escala */
+.mantine-Combobox-option[data-selected="true"]::after,
+.mantine-Combobox-option[aria-selected="true"]::after {
+    transform: translateY(-60%) rotate(45deg) scale(1) !important;
+}
+
+/* ====================================================================== */
+/* 8. NUMBER INPUT MANTINE                                               */
+/* ====================================================================== */
+.mantine-NumberInput-input {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border-accent) !important;
+    color: var(--color-text-main) !important;
+}
+
+.mantine-NumberInput-input:focus {
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 0 2px rgba(114, 76, 57, 0.25) !important;
+}
+
+.mantine-InputWrapper-label {
+    color: var(--color-text-muted) !important;
+    font-size: 0.75rem !important;
+}
+
+/* ====================================================================== */
+/* 9. PAINÉIS DE GRÁFICO — Borda e sombra premium                       */
+/* ====================================================================== */
+.chart-panel {
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 4px;
+    box-shadow: var(--shadow-panel);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.chart-panel:hover {
+    border-color: var(--color-border-accent);
+    box-shadow: var(--shadow-panel), var(--shadow-accent);
+}
+
+/* ====================================================================== */
+/* 10. LOADING SPINNER — Cor accent                                       */
+/* ====================================================================== */
+._dash-loading-callback {
+    background: rgba(12, 21, 26, 0.7) !important;
+    backdrop-filter: blur(4px);
+}
+
+/* ====================================================================== */
+/* 11. MICRO-ANIMAÇÕES — Footer e elementos da sidebar                   */
+/* ====================================================================== */
+.sidebar-footer a {
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+    text-decoration: none !important;
+}
+
+.sidebar-footer a:hover {
+    color: var(--color-accent-hover) !important;
+    text-shadow: 0 0 8px rgba(114, 76, 57, 0.5);
+}
+
+/* Linha accent decorativa no topo da sidebar */
+.sidebar-accent-line {
+    width: 100% !important;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+    border-radius: 2px;
+    margin-bottom: 16px;
+}
+
+/* ====================================================================== */
+/* 12. KPI BADGE — Valor de destaque nos tooltips                        */
+/* ====================================================================== */
+.kpi-value {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 600;
+}
