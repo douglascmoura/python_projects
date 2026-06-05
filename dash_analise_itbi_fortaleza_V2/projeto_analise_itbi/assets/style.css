@@ -1,0 +1,329 @@
+:root {
+    --color-bg-main: #060606;       /* Fundo principal premium (Super escuro) */
+    --color-bg-sidebar: #111111;    /* Sidebar (Cinza muito escuro) */
+    --color-panel: #111111;         /* Cards e painéis */
+    --color-accent: #2BBACA;        /* Accent Teal/Ciano */
+    --color-accent-neon: #2BBACA;   /* Neon glow Teal */
+    --color-accent-hover: #6fd2d9;  /* Hover Ciano claro */
+    --color-border: #222222;        /* Bordas escuras */
+    --color-border-accent: #114a51; /* Bordas visíveis Teal escuro */
+    --color-text-main: #FFFFFF;     /* Texto claro principal */
+    --color-text-muted: #8C8C8C;    /* Texto secundário */
+    --color-text-sidebar: #E0E0E0;
+    --color-sidebar-muted: #8C8C8C;
+
+    /* Sombras premium */
+    --shadow-panel: 0 2px 16px rgba(0, 0, 0, 0.4);
+    --shadow-accent: 0 0 20px rgba(43, 186, 202, 0.25);
+    --shadow-sidebar: 4px 0 24px rgba(0, 0, 0, 0.5);
+
+    /* Mantine Custom Variables */
+    --mantine-color-body: var(--color-bg-main);
+    --mantine-color-text: var(--color-text-main);
+}
+
+/* Base reset and fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Times+New+Roman&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+.app-container {
+    background-color: var(--color-bg-main) !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-main);
+    margin: 0;
+}
+
+/* Sidebar Layout */
+.sidebar-container {
+    background-color: var(--color-bg-sidebar) !important;
+    border-right: 1px solid var(--color-border) !important;
+    position: relative;
+    box-shadow: var(--shadow-sidebar);
+    padding: 14px 20px;
+    min-height: 100vh;
+}
+
+.sidebar-title {
+    font-family: 'Times New Roman', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 2.3rem !important; /* Fonte um pouco maior */
+    background: linear-gradient(135deg, #2BBACA, #FFFFFF); /* Degradê tech */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.sidebar-description {
+    font-size: 0.85rem;
+    color: #ACC6C9 !important;
+    text-align: justify;
+    line-height: 1.4;
+}
+
+.sidebar-divider {
+    border-color: var(--color-border) !important;
+    margin: 1rem 0;
+    opacity: 1;
+}
+
+.sidebar-label {
+    font-size: 0.85rem;
+    color: var(--color-accent) !important;
+    font-weight: 600;
+    display: block;
+}
+
+/* Switches Custom */
+.custom-switch .form-check-input {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: var(--color-border) !important;
+    cursor: pointer;
+}
+
+.custom-switch .form-check-input:checked {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+    box-shadow: var(--shadow-accent) !important;
+}
+
+.custom-switch .form-check-label {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    padding-left: 0.5rem;
+}
+
+/* ====================================================================== */
+/* 7. MULTISELECT MANTINE — Pílulas e Input Dark                         */
+/* ====================================================================== */
+.mantine-MultiSelect-input {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text-main) !important;
+    
+    max-height: 38px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 4px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+.mantine-MultiSelect-input:focus-within {
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 8px rgba(43, 186, 202, 0.4) !important;
+}
+
+.mantine-MultiSelect-input::-webkit-scrollbar {
+    height: 3px !important;
+}
+.mantine-MultiSelect-input::-webkit-scrollbar-thumb {
+    background: var(--color-border) !important;
+    border-radius: 2px !important;
+}
+.mantine-MultiSelect-input::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent) !important;
+}
+
+.mantine-Pill-root {
+    display: none !important;
+}
+
+.mantine-MultiSelect-dropdown,
+.mantine-Combobox-dropdown {
+    background-color: var(--color-panel) !important;
+    border-color: var(--color-border) !important;
+}
+
+.mantine-MultiSelect-optionCheck,
+.mantine-Combobox-optionCheck,
+.mantine-Select-optionCheck,
+.mantine-Combobox-option[data-selected] svg,
+.mantine-Combobox-option[data-selected="true"] svg,
+.mantine-Combobox-option[aria-selected="true"] svg {
+    display: none !important;
+}
+
+.mantine-Combobox-option {
+    padding-left: 32px !important;
+    position: relative !important;
+    font-size: 0.85rem !important;
+    color: var(--color-text-muted) !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 36px !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.mantine-Combobox-option[data-selected],
+.mantine-Combobox-option[data-selected="true"],
+.mantine-Combobox-option[aria-selected="true"] {
+    background-color: rgba(43, 186, 202, 0.15) !important;
+    color: var(--color-text-main) !important;
+}
+
+.mantine-Combobox-option:hover,
+.mantine-Combobox-option[data-combobox-active],
+.mantine-Combobox-option[data-hovered] {
+    background-color: var(--color-accent) !important;
+    color: var(--color-bg-main) !important;
+}
+
+.mantine-Combobox-option::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 8px !important;
+    width: 14px !important;
+    height: 14px !important;
+    border: 1px solid var(--color-text-muted) !important;
+    border-radius: 3px !important;
+    background-color: var(--color-panel) !important;
+    transition: background-color 0.15s, border-color 0.15s !important;
+}
+
+.mantine-Combobox-option[data-selected]::before,
+.mantine-Combobox-option[data-selected="true"]::before,
+.mantine-Combobox-option[aria-selected="true"]::before {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+}
+
+.mantine-Combobox-option::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) rotate(45deg) scale(0) !important;
+    width: 4px !important;
+    height: 8px !important;
+    border-right: 2px solid var(--color-bg-main) !important;
+    border-bottom: 2px solid var(--color-bg-main) !important;
+    transition: transform 0.15s ease !important;
+    transform-origin: center !important;
+}
+
+.mantine-Combobox-option[data-selected]::after,
+.mantine-Combobox-option[data-selected="true"]::after,
+.mantine-Combobox-option[aria-selected="true"]::after {
+    transform: translateY(-60%) rotate(45deg) scale(1) !important;
+}
+
+/* ====================================================================== */
+/* 8. BOTOES MACRO, CHARTS, FOOTER E CORES ESPECIFICAS                    */
+/* ====================================================================== */
+
+/* Cores dos Switches (Residencial e Comercial) */
+#filtro-uso .form-check:nth-child(1) .form-check-input:checked {
+    background-color: #00B4D8 !important;
+    border-color: #00B4D8 !important;
+    box-shadow: 0 0 8px rgba(0, 180, 216, 0.4) !important;
+}
+
+#filtro-uso .form-check:nth-child(2) .form-check-input:checked {
+    background-color: #E5A93B !important;
+    border-color: #E5A93B !important;
+    box-shadow: 0 0 8px rgba(229, 169, 59, 0.4) !important;
+}
+
+/* Buttons Macro Action */
+.btn-macro-action {
+    cursor: pointer;
+    font-size: 0.75rem;
+    text-decoration: underline;
+    transition: all 0.2s ease;
+}
+
+.text-primary-accent {
+    color: var(--color-accent);
+}
+
+.text-muted-accent {
+    color: var(--color-text-muted);
+}
+
+.btn-macro-action:hover {
+    color: var(--color-accent-hover);
+    text-shadow: 0 0 8px var(--color-accent);
+}
+
+/* Charts Panels */
+.chart-tall,
+.chart-standard {
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 2px;
+    box-shadow: var(--shadow-panel);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+
+.chart-tall {
+    height: 51vh; /* Aumentado para dar mais destaque ao mapa */
+    margin-top: 12px; /* Espaçamento do topo da tela */
+}
+
+.chart-standard {
+    height: 44vh; /* Aumentado para preencher o espaço vago inferior */
+}
+
+.chart-tall:hover,
+.chart-standard:hover {
+    border-color: rgba(43, 186, 202, 0.5);
+    box-shadow: var(--shadow-panel), var(--shadow-accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+/* Footer fixed */
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+}
+
+.sidebar-footer a {
+    color: var(--color-accent-hover);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.sidebar-footer a:hover {
+    color: var(--color-accent-neon) !important;
+    text-shadow: 0 0 10px rgba(111, 210, 217, 0.5);
+}
+
+/* ====================================================================== */
+/* 9. MIRA DE PRECISÃO NOS GRÁFICOS (Crosshair)                          */
+/* ====================================================================== */
+.js-plotly-plot,
+.js-plotly-plot *,
+.mapboxgl-canvas {
+    cursor: crosshair !important;
+}
