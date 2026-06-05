@@ -17,6 +17,7 @@ Os projetos estão organizados em subpastas modulares, cada uma contendo seus pr
 │   └── pedra_papel_tesoura.py
 ├── streamlit_FIFA_project/                 # Dashboard analítico com Streamlit
 ├── dash_analise_itbi_fortaleza             # Dashboard analítico com Plotly e Dash
+├── dash_analise_itbi_fortaleza_V2          # Dashboard analítico com Plotly e Dash 2ª versão
 ├── dash_producao_petroleo_brasil           # Dashboard analítico com Plotly e Dash
 ├── dash_producao_petroleo_brasil_V2        # Dashboard analítico com Plotly e Dash 2ª versão
 ├── dash_processamento_petroleo_brasil      # Dashboard analítico com Plotly e Dash
