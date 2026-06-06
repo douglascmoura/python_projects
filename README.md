@@ -23,3 +23,4 @@ Os projetos estão organizados em subpastas modulares, cada uma contendo seus pr
 ├── dash_processamento_petroleo_brasil      # Dashboard analítico com Plotly e Dash
 ├── dash_processamento_petroleo_brasil_V2   # Dashboard analítico com Plotly e Dash 2ª versão
 ├── dash_vendas_combustiveis_brasil         # Dashboard analítico com Plotly e Dash
+├── titanic_machine_learning
