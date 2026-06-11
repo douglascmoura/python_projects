@@ -28,13 +28,17 @@ A aplicação foi projetada com foco em engenharia de software e performance de 
 O diretório está organizado separando a base bruta, as rotinas de limpeza de dados e a aplicação web:
 
 ```text
-├── assets/
-│   └── style.css                             # Estilizações customizadas do Dashboard
 ├── dataset/
 │   └── dados_abertos_itbi_transacoes_imobiliarias.xlsx  # Base bruta (Dados Abertos)
+│   └── dataset_filtered.xlsx                            # Base higienizada consumida pelo Dashboard
+├── projeto_analise_itbi/
+│   ├── assets/
+│   │     └── style.css                                  # Estilizações customizadas (Classes e Layout)
+│   ├── data_manager.py                                  # Módulo de Ingestão, Tipagem e Constantes Globais
+│   ├── layout.py                                        # Módulo de Frontend (Sidebar, Grid e Componentes)
+│   ├── callbacks.py                                     # Módulo de Backend (Reatividade e Gráficos Plotly)
+│   └── app.py                                           # Entry-point (Servidor web e Acoplamento)
 ├── scripts/
-│   ├── analise_exploratoria_itbi.ipynb       # Notebook de EDA e descobertas iniciais
-│   └── script_filter.ipynb                   # ETL: Tratamento e exportação da base limpa
-├── dataset_filtered.xlsx                     # Base higienizada consumida pelo Dashboard
-├── app.py                                    # Script principal (Servidor web e Callbacks)
-└── README.md                                 # Este documento
+│   ├── analise_exploratoria_itbi.ipynb                  # Notebook de EDA e descobertas iniciais
+│   └── script_filter.ipynb                              # ETL: Tratamento e exportação da base limpa
+└── README.md                                            # Este documento
