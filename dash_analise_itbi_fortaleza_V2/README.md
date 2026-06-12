@@ -4,6 +4,14 @@ Este projeto é uma aplicação web analítica desenvolvida em **Python** utiliz
 
 ---
 
+## 📸 Demonstração da Aplicação
+
+![Demonstração da Aplicação do Modelo de Ising](dash_analise_itbi_fortaleza_V2.gif)
+
+*Interface interativa feito com dash: distribuição geográfica de valores e perfil de bairros (Fortaleza-CE).*
+
+---
+
 ## 🎯 Funcionalidades da Aplicação
 
 O Dashboard oferece uma interface interativa (Dark Mode) que permite ao usuário explorar os dados em tempo real através de:
@@ -41,4 +49,5 @@ O diretório está organizado separando a base bruta, as rotinas de limpeza de d
 ├── scripts/
 │   ├── analise_exploratoria_itbi.ipynb                  # Notebook de EDA e descobertas iniciais
 │   └── script_filter.ipynb                              # ETL: Tratamento e exportação da base limpa
+├── dash_analise_itbi_fortaleza_V2.gif                   # Projeção visual da aplicação em .gif
 └── README.md                                            # Este documento
