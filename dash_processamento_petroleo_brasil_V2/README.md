@@ -6,6 +6,14 @@ O grande diferencial deste projeto é a sua **Arquitetura Modular**, que separa 
 
 ---
 
+## 📸 Demonstração da Aplicação
+
+![Demonstração da Aplicação do Modelo de Ising](dash_processamento_petroleo_brasil_V2.gif)
+
+*Interface interativa feito com dash: volume de processamento de petróleo e distribuição da matéria prima nas refinarias nacionais.*
+
+---
+
 ## 🎯 Funcionalidades e Visualizações
 
 A interface apresenta um design *Dark Mode* elegante (Tema CYBORG do Bootstrap), oferecendo uma experiência analítica imersiva com os seguintes gráficos dinâmicos:
@@ -43,4 +51,5 @@ A base de código segue o princípio de Separação de Responsabilidades (SoC):
 │   ├── app.py                                    # Entry-point (Servidor web e Acoplamento)
 ├── script/
 │    └── script_processamento_petroleo.ipynb      # Análise Exploratória de Dados
+├── dash_processamento_petroleo_brasil_V2.gif     # Projeção visual da aplicação em .gif
 └── README.md                                     # Este documento
