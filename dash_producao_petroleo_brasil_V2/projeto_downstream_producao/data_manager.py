@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 def carregar_dados():
-    caminho_base = Path(__file__).resolve().parent
+    caminho_base = Path(__file__).resolve().parent.parent
     
     # Produção
     parquet_path = caminho_base / "dataset" / "producao_petroleo_filtered.parquet"
@@ -19,7 +19,7 @@ def carregar_dados():
         print(f"[ERRO] Dataset não encontrado em {parquet_path}")
 
     # GeoJSON
-    geojson_path = caminho_base / "dataset" / "brazil_states.json"
+    geojson_path = caminho_base / "script" / "brazil_states.json"
     geojson_brasil = {}
     if geojson_path.exists():
         try:

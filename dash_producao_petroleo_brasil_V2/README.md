@@ -4,6 +4,14 @@ Este projeto é uma aplicação web analítica desenvolvida em **Python** utiliz
 
 ---
 
+## 📸 Demonstração da Aplicação
+
+![Demonstração da Dash Produção de Petróleo.](dash_producao_petroleo_brasil_V2.gif)
+
+*Interface interativa feito com dash: Análise volumétrica da extração de petróleo no Brasil.*
+
+---
+
 ## 🎯 Funcionalidades e Visualizações
 
 A aplicação apresenta uma interface *Light Mode* (Tema LUX do Bootstrap) com paletas de cores quentes e modernas, oferecendo as seguintes visualizações dinâmicas:
@@ -30,11 +38,11 @@ O diretório está organizado separando os arquivos estáticos, as rotinas de tr
 ```text
 ├── dataset/
 │   ├── metadados_producao_petroleo.pdf           # Dicionário de dados e documentação oficial
-│   └── producao_petroleo.xlsx             # Base bruta original (Dados da ANP)
+│   ├── producao_petroleo.xlsx                    # Base bruta original (Dados da ANP)
+│   └── producao_petroleo_filtered.parquet        # Base Otimizada de Dados
 ├── projeto_downstream_producao/
 │   ├── assets/
 │   │    └── style.css                            # Estilizações customizadas (Classes e Layout)
-│   ├── producao_petroleo_filtered.parquet        # Base Otimizada de Dados
 │   ├── data_manager.py                           # Módulo de Ingestão, Tipagem e Constantes Globais
 │   ├── layout.py                                 # Módulo de Frontend (Sidebar, Grid e Componentes)
 │   ├── callbacks.py                              # Módulo de Backend (Reatividade e Gráficos Plotly)
@@ -42,4 +50,5 @@ O diretório está organizado separando os arquivos estáticos, as rotinas de tr
 ├── script/
 │   ├── brazil_states.json                        # Malha espacial (GeoJSON) dos estados brasileiros
 │   └── script_producao_petroleo.ipynb            # Notebook de ETL (Limpeza e exportação para Parquet)
+├── dash_producao_petroleo_brasil_V2.gif          # Projeção visual da aplicação em .gif
 └── README.md                                     # Este documento
