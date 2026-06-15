@@ -8,7 +8,7 @@ O grande diferencial deste projeto é a sua **Arquitetura Modular**, que separa 
 
 ## 📸 Demonstração da Aplicação
 
-![Demonstração da Aplicação do Modelo de Ising](dash_processamento_petroleo_brasil_V2.gif)
+![Demonstração da Dash Processamento de Petróleo.](dash_processamento_petroleo_brasil_V2.gif)
 
 *Interface interativa feito com dash: volume de processamento de petróleo e distribuição da matéria prima nas refinarias nacionais.*
 
