@@ -6,6 +6,14 @@ O projeto adota uma **Arquitetura Modular** rigorosa que separa o layout (Fronte
 
 ---
 
+## 📸 Demonstração da Aplicação
+
+![Demonstração da Dash Produção de Petróleo.](dash_vendas_combustiveis_brasil.gif)
+
+*Interface interativa feito com dash: Análise da série histórica de vendas de derivados de petróleo e etanol no Brasil.*
+
+---
+
 ## 🎯 Funcionalidades e Visualizações
 
 A interface apresenta um design *Dark Mode* elegante com uma identidade visual inspirada nos tons *Pedra & Terra* (utilizando carvão profundo `#0C151A` e marrom terracota `#724C39`), oferecendo uma experiência analítica imersiva com as seguintes visualizações:
@@ -43,5 +51,5 @@ O projeto segue estritamente o princípio de Separação de Responsabilidades (S
 │   ├── vendas_combustiveis_filtered.parquet            # Base otimizada
 ├── script/
 │   └── script_vendas_combustiveis_brasil.ipynb         # Notebook de ETL (Limpeza e exportação para Parquet)
-│            
+├── dash_vendas_combustiveis_brasil.gif                 # Projeção visual da aplicação em .gif
 └── README.md                                           # Este documento
