@@ -31,7 +31,7 @@ A modelagem engloba o tratamento de dados faltantes (imputação), engenharia de
 ├── analise_titanic_ml.ipynb              # Notebook central de exploração, Feature Engineering e modelagem
 ├── train.csv                             # Dataset base contendo a variável alvo para o treinamento
 ├── test.csv                              # Dataset de avaliação/teste
-└── submission.csv                        # Arquivo preditivo final
+└── gender_submission.csv                 # Arquivo preditivo final
 ```
 
 ---
